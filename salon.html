@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Lumière — салон красоты | Онлайн-запись</title>
+<meta name="description" content="Салон красоты Lumière: запись, мастера, история с 2015 года, панель для сотрудников.">
+<style>
+:root{
+  --bg:#fdf8f4; --card:#fff; --ink:#3a2e2a; --muted:#8a7a72;
+  --pink:#e8a0b4; --pink-dark:#c9768e; --gold:#c9a86a; --gold-light:#f3e7cf;
+  --line:#f0e3d8; --shadow:0 12px 40px rgba(180,130,110,.14); --radius:18px;
+  --sel:#3a2e2a;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;padding-bottom:0}
+a{color:inherit}
+.container{max-width:1150px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:rgba(253,248,244,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none}
+.logo-mark{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffd6e2,#e8a0b4 55%,#c9768e);display:grid;place-items:center;color:#fff;font-size:20px;box-shadow:var(--shadow)}
+.logo small{display:block;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:16px;font-size:15px}
+.nav-links a{text-decoration:none;opacity:.85}
+.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 20px;font:inherit;font-weight:600;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block;min-height:44px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(135deg,#f2b8c6,#e8a0b4);border-color:#e8a0b4;color:#5b2a3a}
+.btn-dark{background:#3a2e2a;color:#fff;border-color:#3a2e2a}
+.btn-danger{background:#fff0f1;border-color:#f1aeb5;color:#842029}
+.btn-small{padding:8px 14px;font-size:13px;min-height:36px}
+#burger{display:none;font-size:22px;background:#fff;border:1px solid var(--line);border-radius:12px;width:44px;height:44px;cursor:pointer}
+/* HERO */
+.hero{background:radial-gradient(800px 400px at 80% 10%,#ffe4ec 0%,transparent 60%),radial-gradient(700px 380px at 10% 90%,#fdf0d5 0%,transparent 60%),var(--bg);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:48px 0 42px}
+.eyebrow{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted)}
+.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.05;margin:14px 0 10px;font-family:Georgia,serif}
+.hero h1 em{font-style:italic;color:var(--pink-dark)}
+.lead{font-size:17px;color:#6a5c55}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.hero-card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:18px}
+.salon-photo{min-height:220px;border-radius:16px;background:linear-gradient(135deg,#ffe4ec,#f3e7cf);display:flex;align-items:center;justify-content:center;text-align:center;color:#5b2a3a;font-weight:800;padding:24px 16px;font-size:56px;letter-spacing:8px;line-height:1.4}
+[data-theme="dark"] .salon-photo{background:linear-gradient(135deg,#4a2c3a,#4a3a22);color:#ffe9c9}
+.badges{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.badge{background:#fff7f9;border:1px solid #f5cbd6;border-radius:12px;padding:7px 12px;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{font-size:19px;display:block}
+.stat span{font-size:12px;color:var(--muted)}
+section{padding:50px 0}
+.sec-head h2{font-family:Georgia,serif;font-size:30px;margin:0 0 6px}
+.sec-head p{color:#6a5c55;margin:0 0 18px}
+.grid-services{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:18px}
+.price{font-weight:800;font-size:19px;color:var(--pink-dark)}
+.meta{font-size:13px;color:var(--muted)}
+.desc{font-size:14px;color:#5f534e}
+.frozen{opacity:.6;filter:grayscale(.4)}
+.tag{display:inline-block;background:var(--gold-light);border:1px solid #e6d5ac;color:#7a5f2e;border-radius:999px;padding:2px 10px;font-size:12px;margin:2px 4px 2px 0}
+.masters{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.master-avatar{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:28px;color:#fff;flex-shrink:0}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.about-box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{padding:0 0 18px 26px;border-left:2px solid #f0d0da;margin-left:8px;position:relative}
+.timeline li::before{content:"";position:absolute;left:-8px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--pink);border:3px solid #fff;box-shadow:0 0 0 2px var(--pink)}
+.timeline b{color:var(--pink-dark)}
+/* BOOKING */
+.booking-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:start}
+.form-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+label{font-size:13px;font-weight:700;color:#6a5c55;display:block;margin:14px 0 6px}
+input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px 13px;border:1px solid #e8d9cc;border-radius:12px;background:#fffdfb}
+input:focus,select:focus{outline:2px solid #f2b8c6;border-color:#e8a0b4}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:8px;margin-top:8px}
+.slot{border:2px solid #e8d9cc;background:#fff;border-radius:12px;padding:12px 6px;cursor:pointer;font-size:15px;font-weight:700;text-align:center;min-height:48px;transition:.15s;position:relative}
+.slot:not(.busy):hover{border-color:var(--pink);transform:translateY(-1px)}
+.slot.busy{opacity:.32;text-decoration:line-through;cursor:not-allowed;font-weight:400}
+.slot.sel{background:linear-gradient(135deg,#3a2e2a,#5b4a43);color:#fff;border-color:#3a2e2a;box-shadow:0 6px 18px rgba(58,46,42,.35),0 0 0 3px #f2b8c6;transform:scale(1.06)}
+#selected-banner{display:none;margin-top:12px;background:#3a2e2a;color:#fff;border-radius:14px;padding:12px 16px;font-weight:700;font-size:15px;align-items:center;gap:10px}
+#selected-banner.show{display:flex;animation:pop .25s ease}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.hint{font-size:13px;color:var(--muted);background:#fff8ef;border:1px dashed #e6d5ac;border-radius:10px;padding:10px 12px;margin-top:12px}
+.my-list{display:grid;gap:10px;margin-top:12px}
+.book-item{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fffdfb;font-size:14px}
+.status{display:inline-block;border-radius:999px;padding:3px 11px;font-size:12px;font-weight:800}
+.st-new{background:#fff3cd;color:#7a5f2e;border:1px solid #f0dfa8}
+.st-confirmed{background:#d4edda;color:#2d6a3f;border:1px solid #a9d8b5}
+.st-done{background:#e2e3e5;color:#4a4e52;border:1px solid #c9ccd0}
+.st-cancelled{background:#f8d7da;color:#842029;border:1px solid #f1aeb5}
+.st-free{background:#d4edda;color:#2d6a3f;border:1px solid #a9d8b5}
+.st-taken{background:#f8d7da;color:#842029;border:1px solid #f1aeb5}
+/* Кнопка "Взять": светится, когда запись свободна, потушена при занятости */
+.btn-take.free{background:linear-gradient(135deg,#8fd694,#5aa469);border-color:#5aa469;color:#12351f;font-weight:800;animation:takeGlow 1.6s infinite}
+@keyframes takeGlow{0%,100%{box-shadow:0 0 0 0 rgba(90,164,105,.55)}50%{box-shadow:0 0 0 9px rgba(90,164,105,0)}}
+.btn-take.taken{opacity:.45;cursor:not-allowed}
+.btn-take.mine{background:#3a2e2a;color:#fff;border-color:#3a2e2a}
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+/* ADMIN */
+.admin-overlay{position:fixed;inset:0;background:rgba(40,25,28,.55);backdrop-filter:blur(4px);display:none;z-index:100;padding:14px;overflow:auto}
+.admin-overlay.open{display:block}
+.admin{max-width:1080px;margin:10px auto;background:#fffdfb;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.25);border:1px solid var(--line)}
+.admin-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px;background:#3a2e2a;color:#fff;flex-wrap:wrap}
+.role-pill{display:inline-block;border-radius:999px;padding:2px 12px;font-size:12px;font-weight:800}
+.role-manager{background:gold;color:#3a2e2a}
+.role-staff{background:#e8e0ff;color:#3a2a6e}
+.admin-tabs{display:flex;gap:8px;padding:12px;overflow-x:auto;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;scrollbar-width:none;-ms-overflow-style:none}
+.admin-tabs::-webkit-scrollbar{display:none}
+#admin-tabs.staff .only-manager{display:none!important}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;cursor:pointer;font-weight:700;white-space:nowrap;font-size:14px}
+.tab.active{background:#3a2e2a;color:#fff;border-color:#3a2e2a}
+.admin-body{padding:16px 16px 24px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.filters input,.filters select{width:auto;min-width:140px;flex:1;font-size:14px;padding:10px}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#fdf0e8;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.kpi b{font-size:21px;display:block}
+.perm-note{font-size:13px;background:#f3ecff;border:1px solid #d6c9f5;border-radius:10px;padding:10px 12px;margin-bottom:12px}
+.m-cards{display:none}
+/* Мобильная нижняя панель */
+.mobile-bar{display:none;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;background:#3a2e2a;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;box-shadow:0 12px 30px rgba(0,0,0,.3);align-items:center;justify-content:space-between;font-weight:700}
+.mobile-bar a{background:linear-gradient(135deg,#f2b8c6,#e8a0b4);color:#5b2a3a;border-radius:999px;padding:12px 22px;text-decoration:none;font-weight:800}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:#3a2e2a;color:#fff;padding:12px 20px;border-radius:999px;opacity:0;transition:.3s;z-index:300;max-width:92vw;text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{border-top:1px solid var(--line);padding:28px 0 90px;background:#fff}
+.foot-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px}
+/* ===== МОБИЛЬНАЯ ВЕРСИЯ ===== */
+@media(max-width:920px){
+  .hero-grid,.booking-wrap,.about{grid-template-columns:1fr}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:10px 20px 16px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 4px;border-bottom:1px solid var(--line);font-size:16px}
+  #burger{display:block}
+  .nav .btn{padding:9px 14px;font-size:14px;min-height:44px}
+  #open-admin-btn .txt{font-size:13px}
+  #theme-btn{min-width:44px}
+  [data-theme="dark"] #nav-links{background:var(--card)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  section{padding:34px 0}
+  .mobile-bar{display:flex}
+  footer{padding-bottom:110px}
+}
+@media(max-width:560px){
+  .container{padding:0 14px}
+  .hero-grid{padding:28px 0}
+  .salon-photo{min-height:170px;font-size:40px}
+  .staff-note{left:12px;right:auto;bottom:78px;max-width:220px;font-size:12px;padding:10px 12px}
+  .row2{grid-template-columns:1fr}
+  .form-card{padding:16px;border-radius:16px}
+  .slots{grid-template-columns:repeat(3,1fr)}
+  .slot{min-height:52px;font-size:16px}
+  .admin{margin:0;border-radius:14px}
+  .admin-body{padding:12px 10px 20px}
+  table{min-width:680px;font-size:13px}
+  .kpi{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr}
+  /* Карточки записей вместо таблицы на самых маленьких */
+  .table-wrap.desktop-only{display:none}
+  .m-cards{display:grid;gap:10px}
+  .m-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;font-size:14px}
+  .m-card .row{display:flex;justify-content:space-between;gap:8px;margin:4px 0}
+}
+.demo-bar{background:linear-gradient(90deg,#3a2e2a,#5b4a43);color:#ffe9c9;text-align:center;font-size:14px;font-weight:700;padding:9px 14px;letter-spacing:.2px}
+.demo-bar b{color:#ffd98a}
+/* ===== ТЁМНАЯ ТЕМА ===== */
+[data-theme="dark"]{--bg:#1c1614;--card:#28201d;--ink:#f2e7e0;--muted:#bfaea3;--line:#4a3d36;--shadow:0 12px 40px rgba(0,0,0,.45);--gold-light:#4a3a22}
+[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+[data-theme="dark"] header{background:rgba(28,22,20,.94)}
+[data-theme="dark"] .hero{background:radial-gradient(800px 400px at 80% 10%,#4a2c3a 0%,transparent 60%),radial-gradient(700px 380px at 10% 90%,#4a3a22 0%,transparent 60%),var(--bg)}
+[data-theme="dark"] .card,[data-theme="dark"] .form-card,[data-theme="dark"] .about-box,[data-theme="dark"] .hero-card,[data-theme="dark"] .stat,[data-theme="dark"] .admin,[data-theme="dark"] .table-wrap,[data-theme="dark"] .m-card,[data-theme="dark"] .kpi div{background:var(--card);border-color:var(--line);color:var(--ink)}
+[data-theme="dark"] .perm-note{background:#332a26;border-color:var(--line);color:var(--ink)}
+.btn-assign{background:linear-gradient(135deg,#ffe9a8,#f5c86e);border-color:#dfae4a;color:#5b4210;font-weight:800}
+.assign-pick{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fffdfb;border-radius:10px;padding:10px 12px;font:inherit;font-weight:700;cursor:pointer;margin-bottom:6px}
+[data-theme="dark"] .assign-pick{background:#332a26;color:var(--ink)}
+.assign-pick:hover{border-color:var(--pink)}
+.view-toggle{display:flex;gap:6px}
+.view-toggle .vtab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;cursor:pointer;font-weight:700;white-space:nowrap;font-size:14px;font-family:inherit;color:var(--ink)}
+.view-toggle .vtab.on{background:#3a2e2a;color:#fff;border-color:#3a2e2a}
+[data-theme="dark"] .view-toggle .vtab{background:#332a26;color:var(--ink)}
+[data-theme="dark"] .view-toggle .vtab.on{background:#f2e7e0;color:#28201d}
+[data-theme="dark"] .book-item,[data-theme="dark"] .hint,[data-theme="dark"] .eyebrow,[data-theme="dark"] .badge{background:#332a26;border-color:var(--line);color:var(--ink)}
+[data-theme="dark"] input,[data-theme="dark"] select,[data-theme="dark"] textarea{background:#332a26;border-color:var(--line);color:var(--ink)}
+[data-theme="dark"] .btn{background:#332a26;border-color:var(--line);color:var(--ink)}
+[data-theme="dark"] .btn-primary{background:linear-gradient(135deg,#c9768e,#a45a72);color:#fff;border-color:#c9768e}
+[data-theme="dark"] .btn-dark{background:#f2e7e0;color:#28201d;border-color:#f2e7e0}
+[data-theme="dark"] .tab{background:#332a26;color:var(--ink);border-color:var(--line)}
+[data-theme="dark"] .tab.active{background:#f2e7e0;color:#28201d}
+[data-theme="dark"] .admin-tabs{background:var(--card)}
+.top-sticky{position:sticky;top:0;z-index:70}
+.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.booking-sec{background:linear-gradient(180deg,#fff,#fdf1e7)}
+[data-theme="dark"] .alt{background:#241d1a}
+[data-theme="dark"] .booking-sec{background:linear-gradient(180deg,#241d1a,#2b211c)}
+/* плавающее окошко для сотрудников — всегда на экране */
+.staff-note{position:fixed;left:14px;bottom:14px;z-index:65;max-width:260px;background:var(--card,#fff);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.22);padding:12px 14px;font-size:13px}
+.staff-note b{display:block;margin-bottom:4px}
+.staff-note code{background:#f3ecff;border-radius:6px;padding:0 5px}
+[data-theme="dark"] .staff-note code{background:#3a2f2a}
+[data-theme="dark"] .tag{background:#4a3a22;border-color:#a5824a;color:#ffd98a}
+[data-theme="dark"] .price{color:#f2a9be}
+[data-theme="dark"] .timeline b{color:#f2a9be}
+.staff-note .btn{margin-top:8px;width:100%}
+[data-theme="dark"] th{background:#3a2f2a}
+[data-theme="dark"] .slot{background:#332a26;border-color:var(--line);color:var(--ink)}
+[data-theme="dark"] .slot.sel{background:linear-gradient(135deg,#e8a0b4,#c9768e);border-color:#e8a0b4;box-shadow:0 6px 18px rgba(0,0,0,.5),0 0 0 3px #c9768e}
+[data-theme="dark"] #selected-banner{background:#e8a0b4;color:#3a1f2a}
+[data-theme="dark"] .lead,[data-theme="dark"] .sec-head p,[data-theme="dark"] .desc,[data-theme="dark"] label{color:var(--muted)}
+[data-theme="dark"] footer{background:var(--card)}
+
+/* контекстное меню задержки */
+.delay-menu{position:fixed;z-index:400;background:var(--card,#fff);border:1px solid var(--line,#e8d9cc);border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.3);padding:12px;min-width:230px;display:none}
+.delay-menu.open{display:block;animation:pop .18s ease}
+.delay-menu b{display:block;margin-bottom:8px}
+.delay-menu .opts{display:flex;flex-wrap:wrap;gap:8px}
+.delay-menu .opts button{border:1px solid var(--line);background:#fffdfb;border-radius:10px;padding:9px 13px;font-weight:800;cursor:pointer;min-height:40px}
+[data-theme="dark"] .delay-menu .opts button{background:#332a26;color:var(--ink)}
+.delay-menu .opts button:hover{border-color:var(--pink)}
+.delay-badge{display:inline-block;background:#fff3cd;border:1px solid #f0dfa8;color:#7a5f2e;border-radius:8px;padding:2px 8px;font-size:12px;font-weight:800;margin:2px 4px 2px 0}
+.delay-badge.blue{background:#cfe2ff;border-color:#9ec5fe;color:#1e3a5f}
+/* ===== ПРОДАЖИ: допы, промо, оплата, галерея, квиз, сертификаты ===== */
+.extras{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.extra-pill{border:2px solid #e8d9cc;background:#fff;border-radius:12px;padding:9px 13px;cursor:pointer;font-size:13px;font-weight:700;min-height:44px;transition:.15s;color:var(--ink)}
+.extra-pill small{display:block;font-weight:400;font-size:11px;opacity:.75}
+.extra-pill.on{background:#3a2e2a;color:#fff;border-color:#3a2e2a}
+.promo-row{display:flex;gap:8px;margin-top:8px}
+.promo-row input{flex:1;text-transform:uppercase}
+.promo-msg{font-size:13px;margin-top:6px;font-weight:700}
+.promo-ok{color:#2d6a3f}.promo-err{color:#842029}
+.pay-types{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.pay-type{border:2px solid #e8d9cc;border-radius:12px;padding:10px 8px;text-align:center;cursor:pointer;font-size:13px;font-weight:700;background:#fffdfb;color:var(--ink)}
+.pay-type small{display:block;font-weight:400;font-size:11px;opacity:.75}
+.pay-type.on{border-color:var(--pink-dark);background:#fff0f4}
+[data-theme="dark"] .extra-pill,[data-theme="dark"] .pay-type{background:#332a26;border-color:var(--line)}
+[data-theme="dark"] .extra-pill.on{background:#e8a0b4;color:#3a1f2a;border-color:#e8a0b4}
+[data-theme="dark"] .pay-type.on{background:#4a2c3a}
+.bonus-box{display:none;margin-top:10px;background:#fff8e1;border:1px dashed #dfae4a;border-radius:12px;padding:10px 12px;font-size:14px}
+.bonus-box.show{display:block}
+.total-line{display:flex;justify-content:space-between;font-size:14px;margin-top:4px}
+.total-big{font-size:22px;font-weight:800;color:var(--pink-dark)}
+.total-old{text-decoration:line-through;opacity:.6;font-weight:400;font-size:15px}
+.promo-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.promo-card{background:linear-gradient(135deg,#3a2e2a,#6b4a52);color:#ffe9c9;border-radius:20px;padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.promo-card::after{content:"%";position:absolute;right:10px;top:-14px;font-size:110px;opacity:.12;font-weight:800}
+.promo-card h3{margin:0 0 6px;font-size:20px}
+.promo-code{display:inline-block;background:rgba(255,255,255,.16);border:1px dashed #ffd98a;border-radius:10px;padding:6px 14px;font-weight:800;letter-spacing:2px;margin:10px 0}
+/* галерея до/после */
+.ba-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.ba-card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.ba-wrap{position:relative;height:220px;user-select:none}
+.ba-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px}
+.ba-after{background:linear-gradient(135deg,#ffd6e2,#f3e7cf)}
+.ba-before{background:linear-gradient(135deg,#cfc4bb,#a89a90);width:var(--pos,50%);overflow:hidden;border-right:3px solid #fff}
+.ba-before span{width:100vw;max-width:400px;text-align:center}
+.ba-tag{position:absolute;top:10px;font-size:11px;font-weight:800;border-radius:999px;padding:3px 10px;background:rgba(0,0,0,.5);color:#fff}
+.ba-tag.l{left:10px}.ba-tag.r{right:10px}
+.ba-card input[type=range]{width:calc(100% - 28px);margin:10px 14px;accent-color:var(--pink-dark)}
+.ba-cap{padding:0 16px 14px;font-size:13px;color:var(--muted)}
+/* квиз */
+.quiz-box{max-width:640px;margin:0 auto}
+.quiz-opts{display:grid;gap:10px;margin-top:14px}
+.quiz-opt{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:14px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;text-align:left;color:var(--ink)}
+.quiz-opt:hover{border-color:var(--pink);transform:translateY(-1px)}
+.quiz-steps{display:flex;gap:6px;margin-bottom:6px}
+.quiz-steps i{flex:1;height:6px;border-radius:4px;background:var(--line)}
+.quiz-steps i.on{background:var(--pink)}
+/* сертификаты */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.cert-card{background:linear-gradient(135deg,#fff8e1,#fdeecd);border:2px solid #dfae4a;border-radius:20px;padding:22px;color:#5b4210}
+[data-theme="dark"] .cert-card{background:linear-gradient(135deg,#3a2c14,#4a3a1a);color:#ffe9c9;border-color:#a5824a}
+.cert-card h3{margin:0 0 6px}
+.cert-price{font-size:24px;font-weight:800}
+/* оплата */
+.pay-overlay{position:fixed;inset:0;background:rgba(40,25,28,.6);display:none;z-index:400;padding:16px;overflow:auto}
+.pay-overlay.open{display:block}
+.pay-box{max-width:420px;margin:8vh auto;background:var(--card);color:var(--ink);border-radius:20px;padding:24px;border:1px solid var(--line)}
+.pay-box .fake-card{background:linear-gradient(135deg,#3a2e2a,#7a5a64);border-radius:14px;padding:16px;color:#fff;margin:12px 0;font-size:14px}
+.spinner{width:22px;height:22px;border:3px solid var(--line);border-top-color:var(--pink-dark);border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:-4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rating-head{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 22px;box-shadow:var(--shadow);margin-bottom:14px;flex-wrap:wrap}
+.rating-big{font-size:44px;font-weight:800}
+@media(max-width:560px){.pay-types{grid-template-columns:1fr 1fr}.pay-types .pay-type:last-child{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<div class="top-sticky">
+<div class="demo-bar">✨ Демо-сайт. Так может выглядеть ваш! ✨</div>
+<header>
+<div class="container nav">
+<a class="logo" href="#top"><span class="logo-mark">✦</span><span>Lumière<small>салон красоты</small></span></a>
+<nav class="nav-links" id="nav-links">
+<a href="#services">Услуги</a><a href="#promo">Акции</a><a href="#masters">Мастера</a><a href="#gallery">Работы</a><a href="#about">О нас</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
+</nav>
+<div style="display:flex;gap:8px;align-items:center">
+<a class="btn btn-primary" href="#booking">Записаться</a>
+<button class="btn" id="open-admin-btn">💼 <span class="txt">Я здесь работаю</span></button>
+<button class="btn btn-small" id="theme-btn" title="Сменить тему">🌙</button>
+<button id="burger" aria-label="Меню">☰</button>
+</div>
+</div>
+</header>
+</div>
+
+<div class="mobile-bar"><span>💅 Свободные окошки сегодня</span><a href="#booking">Записаться</a></div>
+
+<aside class="staff-note"><b>Хотите узнать больше?</b>Вы можете посмотреть сайт с точки зрения обычного сотрудника и управляющего.<br>👑 <code>admin</code> / <code>admin123</code> — управляющий<br>👩‍🎨 <code>staff</code> / <code>staff123</code> — сотрудник<button class="btn btn-small btn-dark" id="open-admin-btn3">Посмотреть</button></aside>
+
+<div class="hero" id="top"><div class="container hero-grid">
+<div>
+<span class="eyebrow">✨ Салон красоты • с 2015 года</span>
+<h1>Красота, после которой <em>хочется улыбаться</em> зеркалу</h1>
+<p class="lead">Lumière — салон полного цикла. Онлайн-запись за 1 минуту, отмена в один клик, напоминание от администратора.</p>
+<div class="hero-cta"><a href="#booking" class="btn btn-primary">📅 Записаться онлайн</a><a href="#services" class="btn">Услуги и цены</a></div>
+<div class="stats"><div class="stat"><b>10 лет</b><span>с 2015</span></div><div class="stat"><b>12 400+</b><span>гостей</span></div><div class="stat"><b>4.9 ★</b><span>рейтинг</span></div><div class="stat"><b>8 мастеров</b><span>в команде</span></div></div>
+</div>
+<div class="hero-card"><div class="salon-photo"><span>💇‍♀️ 💅<br>💄 ✨ 🌸</span></div>
+<div class="badges"><span class="badge">🌿 натуральная косметика</span><span class="badge">☕ угощаем</span><span class="badge">🧸 детский уголок</span></div>
+<div class="hint">Пн–Сб 9:00–21:00 • Вс 10:00–18:00 • +7 (900) 123-45-67</div></div>
+</div></div>
+
+<section id="services"><div class="container">
+<div class="sec-head"><h2>Услуги и цены</h2><p>Замороженные услуги скрыты от гостей, но видны сотрудникам в админке.</p></div>
+<div class="grid-services" id="services-grid"></div>
+</div></section>
+
+<section id="promo"><div class="container">
+<div class="sec-head"><h2>Акции</h2><p>Скопируйте промокод и вставьте его в форму записи — скидка посчитается автоматически.</p></div>
+<div class="promo-cards">
+<div class="promo-card"><h3>−20% на первый визит</h3><div style="font-size:14px;opacity:.85">Для новых гостей на любые услуги.</div><div><span class="promo-code">FIRST20</span></div><button class="btn btn-small" data-promo="FIRST20">Скопировать и записаться</button></div>
+<div class="promo-card"><h3>−10% для гостей</h3><div style="font-size:14px;opacity:.85">Постоянный код для своих.</div><div><span class="promo-code">LUMIERE10</span></div><button class="btn btn-small" data-promo="LUMIERE10">Скопировать и записаться</button></div>
+<div class="promo-card"><h3>−15% «Приведи подругу»</h3><div style="font-size:14px;opacity:.85">Приходите вдвоём — скидка обеим.</div><div><span class="promo-code">PODRUGA15</span></div><button class="btn btn-small" data-promo="PODRUGA15">Скопировать и записаться</button></div>
+</div>
+</div></section>
+
+<section id="masters" class="alt"><div class="container">
+<div class="sec-head"><h2>Наши мастера</h2><p>Талантливая команда. Можно выбрать конкретного мастера или «кто свободен».</p></div>
+<div class="masters" id="masters-grid"></div>
+</div></section>
+
+<section id="gallery" class="alt"><div class="container">
+<div class="sec-head"><h2>Наши работы</h2><p>Потяните ползунок, чтобы сравнить «до» и «после».</p></div>
+<div class="ba-grid">
+<div class="ba-card"><div class="ba-wrap"><div class="ba-layer ba-after">💇‍♀️✨</div><div class="ba-layer ba-before"><span>💇‍♀️</span></div><span class="ba-tag l">ДО</span><span class="ba-tag r">ПОСЛЕ</span></div><input type="range" min="0" max="100" value="50" data-ba><div class="ba-cap">Окрашивание + укладка • Анна • 5 500 ₽</div></div>
+<div class="ba-card"><div class="ba-wrap"><div class="ba-layer ba-after">💅🌸</div><div class="ba-layer ba-before"><span>💅</span></div><span class="ba-tag l">ДО</span><span class="ba-tag r">ПОСЛЕ</span></div><input type="range" min="0" max="100" value="50" data-ba><div class="ba-cap">Маникюр с дизайном • Мария • 2 500 ₽</div></div>
+<div class="ba-card"><div class="ba-wrap"><div class="ba-layer ba-after">👁️💖</div><div class="ba-layer ba-before"><span>👁️</span></div><span class="ba-tag l">ДО</span><span class="ba-tag r">ПОСЛЕ</span></div><input type="range" min="0" max="100" value="50" data-ba><div class="ba-cap">Брови + ресницы • Елена • 4 300 ₽</div></div>
+</div>
+</div></section>
+
+<section id="about"><div class="container">
+<div class="sec-head"><h2>О салоне Lumière</h2><p>Описание и история салона.</p></div>
+<div class="about">
+<div class="about-box"><h3 style="margin-top:0">🌸 Что такое Lumière?</h3>
+<p><b>Lumière («свет»)</b> — салон красоты на ул. Солнечной, 12. Открылись в 2015 как кабинет на 2 кресла, выросли в салон полного цикла.</p>
+<ul><li>✅ Стерильность и крафт-пакеты</li><li>✅ Гарантия 7 дней — исправим бесплатно</li><li>✅ Детский уголок, пандус, pet-friendly</li></ul>
+<p><b>Адрес:</b> ул. Солнечная, 12 • Пн–Сб 9:00–21:00, Вс 10:00–18:00</p></div>
+<div class="about-box" id="history"><h3 style="margin-top:0">📖 История</h3>
+<ul class="timeline">
+<li><b>2015 — Два кресла и мечта.</b> Элен Лумьер открывает кабинет 30 м².</li>
+<li><b>2017 — Переезд</b> на Солнечную, 12. Ногтевая студия и бровист.</li>
+<li><b>2019 — Косметология.</b> Кабинет косметолога, электронные карты.</li>
+<li><b>2021 — Испытание.</b> Локдаун, сертификаты, обучение онлайн.</li>
+<li><b>2023 — Lumière 2.0.</b> Ремонт «парижская квартира», учебный центр.</li>
+<li><b>2026 — Сегодня.</b> 8 мастеров, 12 400+ гостей, рейтинг 4.9.</li>
+</ul><p style="font-size:12px;color:var(--muted)">* Демонстрационная страница салона.</p></div>
+</div></div></section>
+
+<section id="quiz"><div class="container">
+<div class="sec-head"><h2>Не знаете, что выбрать?</h2><p>Ответьте на 3 вопроса — подберём услугу за 20 секунд.</p></div>
+<div class="form-card quiz-box" id="quiz-box">
+<div class="quiz-steps" id="quiz-steps"><i class="on"></i><i></i><i></i></div>
+<h3 style="margin:0" id="quiz-q">Что хотите преобразить?</h3>
+<div class="quiz-opts" id="quiz-opts"></div>
+</div>
+</div></section>
+
+<section id="booking" class="booking-sec"><div class="container">
+<div class="sec-head"><h2>Онлайн-запись</h2><p>Выберите время — оно подсветится. Отменить запись можно ниже по номеру телефона.</p></div>
+<div class="booking-wrap">
+<div class="form-card">
+<h3 style="margin:0">📅 Новая запись</h3>
+<label>1. Услуга</label><select id="f-service"></select>
+<div id="f-extras-box"><label style="margin-bottom:2px">Дополнительно к услуге <span style="font-weight:400">(+ к цене и времени)</span></label><div class="extras" id="f-extras"></div></div>
+<label>Промокод <span style="font-weight:400">(необязательно)</span></label><div class="promo-row"><input id="f-promo" placeholder="FIRST20" autocomplete="off"><button class="btn" id="btn-promo" type="button">OK</button></div><div class="promo-msg" id="promo-msg"></div>
+<label>2. Мастер</label><select id="f-master"></select>
+<div class="row2"><div><label>3. Дата</label><input type="date" id="f-date"></div>
+<div><label>4. Время — нажмите, чтобы выбрать</label><div class="slots" id="f-slots"></div></div></div>
+<div id="selected-banner">✅ Выбрано: <span id="selected-text"></span></div>
+<div class="row2"><div><label>5. Ваше имя</label><input id="f-name" placeholder="Например, Ольга" autocomplete="name"></div>
+<div><label>Телефон</label><input id="f-phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel"></div></div>
+<label>Комментарий</label><textarea id="f-comment" rows="2" placeholder="Аллергия, пожелания..."></textarea>
+<label>Оплата</label><div class="pay-types" id="f-pay">
+<div class="pay-type on" data-pay="none">В салоне<small>без предоплаты</small></div>
+<div class="pay-type" data-pay="deposit">Предоплата 500 ₽<small>бронь слота</small></div>
+<div class="pay-type" data-pay="full">Оплатить всё<small>онлайн, сразу</small></div>
+</div>
+<div class="bonus-box" id="bonus-box"><label style="margin:0;display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="f-bonus" style="width:auto"> <span id="bonus-text"></span></label></div>
+<div id="f-summary" class="hint">Выберите услугу и дату.</div>
+<div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-primary" id="btn-book" style="flex:1">Записаться ✨</button><button class="btn" id="btn-clear-form">Очистить</button></div>
+</div>
+<div class="form-card">
+<h3 style="margin:0">🔎 Мои записи — отмена</h3>
+<p style="font-size:14px;color:var(--muted)">Введите телефон → найдите запись → «Отменить запись».</p>
+<label>Телефон</label><input id="my-phone" placeholder="+7..." inputmode="tel">
+<button class="btn btn-dark" id="btn-find" style="margin-top:10px;width:100%">Найти мои записи</button>
+<div class="my-list" id="my-list"></div>
+<div id="bonus-account" style="margin-top:12px"></div>
+<div id="my-certs" style="margin-top:8px"></div>
+<hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+<div class="hint">Воскресенье до 18:00, остальные дни до 21:00.<br>💰 После каждого визита начисляем 5% бонусами — ими можно оплатить до 20% следующей записи.</div>
+</div>
+</div></div></section>
+
+<section id="reviews"><div class="container">
+<div class="sec-head"><h2>Отзывы</h2></div>
+<div class="rating-head"><div class="rating-big">4.9 ★</div><div><b>Отличный рейтинг</b><br><span style="font-size:13px;color:var(--muted)" id="rating-sub">на основе отзывов гостей • мы на Яндекс Картах и 2ГИС</span></div></div>
+<div class="reviews" id="reviews-grid"></div>
+<div class="form-card" style="margin-top:14px">
+<div class="row2"><div><label>Ваше имя</label><input id="r-name"></div><div><label>Оценка</label><select id="r-stars"><option value="5">★★★★★ (5)</option><option value="4">★★★★ (4)</option><option value="3">★★★ (3)</option></select></div></div>
+<label>Отзыв</label><textarea id="r-text" rows="2"></textarea>
+<button class="btn btn-primary" id="btn-review" style="margin-top:10px">Оставить отзыв</button>
+</div></div></section>
+
+<section id="certs" class="alt"><div class="container">
+<div class="sec-head"><h2>Абонементы и сертификаты</h2><p>Выгодно для себя и приятно в подарок. Оплата онлайн, код придёт сразу.</p></div>
+<div class="cert-grid" id="cert-grid"></div>
+</div></section>
+
+<section id="contacts"><div class="container"><div class="sec-head"><h2>Контакты</h2></div>
+<div class="about"><div class="about-box">📍 <b>ул. Солнечная, 12</b><br>📞 +7 (900) 123-45-67<br>✉️ hello@lumiere-salon.test<br>🕘 Пн–Сб 9:00–21:00, Вс 10:00–18:00</div>
+<div class="about-box">🗺️ м. «Цветочная», выход №2, 5 минут пешком.<br><br><span class="tag">Wi-Fi</span><span class="tag">Кофе и чай</span><span class="tag">Детский уголок</span></div></div>
+</div></section>
+
+<footer><div class="container foot-grid">
+<div><b>Lumière — салон красоты</b><br><span style="font-size:13px;color:var(--muted)">Демо-сайт.</span></div>
+<div style="font-size:14px"><a href="#services">Услуги</a> • <a href="#booking">Запись</a> • <a href="#about">О нас</a></div>
+<div><button class="btn btn-small" id="open-admin-btn2">💼 Я здесь работаю</button><br><span style="font-size:12px;color:var(--muted)">admin/admin123 • staff/staff123</span></div>
+</div></footer>
+
+<!-- АДМИНКА -->
+<div class="admin-overlay" id="admin-overlay"><div class="admin">
+<div class="admin-head"><div><b style="font-size:17px">💼 Панель сотрудников</b><br><span id="admin-sub" style="font-size:13px;opacity:.85"></span></div>
+<div style="display:flex;gap:8px"><button class="btn btn-small" id="btn-admin-logout">Выйти</button><button class="btn btn-small" id="btn-admin-close">✕</button></div></div>
+
+<div id="admin-login" style="padding:26px;max-width:430px;margin:0 auto">
+<h3 style="margin-top:0">Вход по логину и паролю</h3>
+<div class="hint">Демо:<br>👑 Управляющий — логин <b>admin</b> / пароль <b>admin123</b><br>👩‍🎨 Сотрудник — логин <b>staff</b> / пароль <b>staff123</b></div>
+<label>Логин</label><input id="admin-login-field" placeholder="admin или staff" autocomplete="username">
+<label>Пароль</label><input type="password" id="admin-pass" placeholder="••••••" autocomplete="current-password">
+<button class="btn btn-dark" id="btn-admin-login" style="margin-top:12px;width:100%">Войти</button>
+</div>
+
+<div id="admin-main" style="display:none">
+<div class="admin-tabs" id="admin-tabs">
+<button class="tab active" data-tab="bookings">📋 Записи</button>
+<button class="tab" data-tab="requests" id="tabbtn-requests">🗑 Запросы <span id="req-badge"></span></button>
+<button class="tab" data-tab="today">📅 Сегодня</button>
+<button class="tab" data-tab="stats" id="tabbtn-stats">📊 Статистика</button>
+<button class="tab only-manager" data-tab="add">➕ Новая запись</button>
+<button class="tab only-manager" data-tab="services">💇 Услуги</button>
+<button class="tab only-manager" data-tab="blocks">🚫 Блокировки</button>
+<button class="tab only-manager" data-tab="staff">👥 Сотрудники</button>
+</div>
+<div class="admin-body">
+<div id="perm-note" class="perm-note"></div>
+
+<div id="tab-bookings">
+<div class="filters"><span class="view-toggle" id="view-toggle"><button class="vtab on" id="view-mine">👤 Мои</button><button class="vtab" id="view-all">📋 Все</button></span><input type="date" id="a-date"><select id="a-master"><option value="">Все мастера</option></select><select id="a-status"><option value="">Все состояния</option><option value="free">Свободно</option><option value="taken">Занято</option></select><input id="a-search" placeholder="Поиск..."><button class="btn btn-small" id="btn-export">⬇ CSV</button><button class="btn btn-small" id="btn-seed">↺ Демо</button></div><div class="hint" id="today-note" style="display:none;margin:0 0 12px">Показаны записи на сегодня 📅</div>
+<div class="table-wrap desktop-only"><table><thead><tr><th>Дата/время</th><th>Клиент + контакты</th><th>Услуга</th><th>Мастер</th><th>Статус</th><th>Действия</th></tr></thead><tbody id="admin-table"></tbody></table></div>
+<div class="m-cards" id="admin-cards"></div>
+</div>
+
+<div id="tab-requests" style="display:none"><h3 style="margin-top:0">Запросы на удаление записей</h3><p style="font-size:13px;color:var(--muted)">Сотрудник может только запросить удаление. Подтверждает / отклоняет только управляющий состав.</p><div id="req-list" style="display:grid;gap:10px"></div></div>
+<div id="tab-today" style="display:none"><h3 style="margin-top:0">Сегодня (<span id="today-date"></span>)</h3><div id="today-list"></div></div>
+<div id="tab-stats" style="display:none"><div class="kpi" id="kpi-box"><div><b id="k-total">0</b>всего</div><div><b id="k-rev">0 ₽</b>выручка</div><div><b id="k-today">0</b>сегодня</div><div><b id="k-new">0</b>занято</div></div><div id="stats-detail" style="font-size:14px"></div></div>
+
+<div id="tab-add" style="display:none"><h3 style="margin-top:0">➕ Создать запись вручную (только управляющий)</h3>
+<div class="row2"><div><label>Услуга</label><select id="ad-service"></select></div><div><label>Мастер</label><select id="ad-master"></select></div></div>
+<div class="row2"><div><label>Дата</label><input type="date" id="ad-date"></div><div><label>Время</label><input type="time" id="ad-time" value="10:00"></div></div>
+<div class="row2"><div><label>Имя</label><input id="ad-name"></div><div><label>Телефон</label><input id="ad-phone"></div></div>
+<label>Комментарий</label><input id="ad-comment">
+<button class="btn btn-primary" id="btn-ad-create" style="margin-top:12px">Создать запись</button>
+</div>
+
+<div id="tab-services" style="display:none"><h3 style="margin-top:0">Услуги: добавить / заморозить / удалить (только управляющий)</h3>
+<div class="row2"><div><label>Название</label><input id="s-name"></div><div><label>Категория</label><input id="s-cat"></div></div>
+<div class="row2"><div><label>Цена (₽)</label><input id="s-price" type="number"></div><div><label>Длительность (мин)</label><input id="s-dur" type="number"></div></div>
+<label>Описание</label><input id="s-desc">
+<button class="btn btn-primary" id="btn-add-service" style="margin-top:10px">+ Добавить</button>
+<div id="admin-services" style="margin-top:12px;display:grid;gap:8px"></div></div>
+
+<div id="tab-blocks" style="display:none"><h3 style="margin-top:0">Блокировки (только управляющий)</h3>
+<div class="row2"><div><label>Мастер</label><select id="b-master"></select></div><div><label>Дата</label><input type="date" id="b-date"></div></div>
+<label>Время через запятую</label><input id="b-times" placeholder="13:00, 13:30">
+<button class="btn btn-dark" id="btn-add-block" style="margin-top:10px">Заблокировать</button>
+<div id="blocks-list" style="margin-top:12px"></div></div>
+
+<div id="tab-staff" style="display:none"><h3 style="margin-top:0">👥 Сотрудники / уровни допуска (только управляющий)</h3>
+<p style="font-size:13px;color:var(--muted)">Уровни: <b>Сотрудник</b> — просмотр записей + запрос на удаление. <b>Управляющий состав</b> — всё: подтверждение удалений, создание/удаление записей, услуги, блокировки, управление сотрудниками.</p>
+<div class="row2"><div><label>Имя</label><input id="st-name" placeholder="Например, Анна"></div><div><label>Логин</label><input id="st-login" placeholder="anna"></div></div>
+<div class="row2"><div><label>Пароль</label><input id="st-pass" placeholder="минимум 4 символа"></div><div><label>Уровень</label><select id="st-role"><option value="staff">Сотрудник</option><option value="manager">Управляющий состав</option></select></div></div>
+<div class="row2"><div><label>Профиль мастера (род деятельности)</label><select id="st-master"><option value="">— Не привязан —</option><option value="m1">👩‍🦰 Анна Соколова — парикмахер</option><option value="m2">💅 Мария Ланге — ногти</option><option value="m3">🧖‍♀️ Елена Ветрова — косметология/брови/массаж</option><option value="m4">💈 Дмитрий Ким — барбер/визаж</option></select></div><div><label>&nbsp;</label><div class="hint" style="margin:0">Привязка определяет, какие записи попадут во вкладку «Мои» сотрудника.</div></div></div>
+<button class="btn btn-primary" id="btn-add-staff" style="margin-top:10px">+ Добавить сотрудника</button>
+<div id="staff-list" style="margin-top:12px;display:grid;gap:8px"></div></div>
+
+</div></div></div></div>
+<div id="toast"></div>
+<div class="pay-overlay" id="pay-overlay"><div class="pay-box">
+<h3 style="margin:0" id="pay-title">Оплата</h3>
+<div style="font-size:14px;color:var(--muted)" id="pay-sub">Демо-режим: деньги никуда не уйдут 🙂</div>
+<div class="fake-card">💳 •••• •••• •••• 4242<br><span style="font-size:12px;opacity:.8">демо-карта салона</span></div>
+<label>Имя держателя</label><input id="pay-name" placeholder="OLGA">
+<div class="row2"><div><label>Срок</label><input id="pay-exp" placeholder="12/28"></div><div><label>CVC</label><input id="pay-cvc" placeholder="123" inputmode="numeric"></div></div>
+<div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-primary" id="pay-go" style="flex:1">Оплатить</button><button class="btn" id="pay-cancel">Назад</button></div>
+<div class="hint" id="pay-msg" style="display:none"></div>
+</div></div>
+<div class="delay-menu" id="delay-menu"><b id="delay-title">На сколько?</b><div class="opts" id="delay-opts"></div><button class="btn btn-small" id="delay-close" style="margin-top:10px;width:100%">Отмена</button></div>
+<div class="delay-menu" id="assign-menu"><b id="assign-title">Назначить мастера</b><div id="assign-opts"></div><button class="btn btn-small" id="assign-close" style="margin-top:10px;width:100%">Отмена</button></div>
+
+<script>
+/* ========== ДАННЫЕ ========== */
+const DEFAULT_SERVICES=[
+{id:"s1",cat:"Парикмахерские",name:"Женская стрижка + укладка",price:2500,dur:60,desc:"Консультация, мытьё, стрижка, укладка.",active:true},
+{id:"s2",cat:"Парикмахерские",name:"Окрашивание в один тон",price:5500,dur:150,desc:"Краситель + уход и укладка.",active:true},
+{id:"s3",cat:"Парикмахерские",name:"Мужская стрижка",price:1500,dur:40,desc:"Машинка + ножницы.",active:true},
+{id:"s4",cat:"Ногти",name:"Маникюр + гель-лак",price:2200,dur:90,desc:"Снятие, форма, покрытие.",active:true},
+{id:"s5",cat:"Ногти",name:"Педикюр SMART",price:2800,dur:90,desc:"Аппаратный педикюр.",active:true},
+{id:"s6",cat:"Брови и ресницы",name:"Брови: коррекция + окрашивание",price:1500,dur:45,desc:"Форма + краска/хна.",active:true},
+{id:"s7",cat:"Брови и ресницы",name:"Наращивание ресниц 2D",price:2800,dur:120,desc:"Эффект на выбор.",active:true},
+{id:"s8",cat:"Косметология",name:"Чистка лица + пилинг",price:4500,dur:90,desc:"Атравматичная чистка, маска.",active:true},
+{id:"s9",cat:"Визаж",name:"Макияж дневной/вечерний",price:3000,dur:60,desc:"Стойкий макияж.",active:true},
+{id:"s10",cat:"Массаж",name:"Массаж спины 45 мин",price:2700,dur:45,desc:"Расслабляющий.",active:true}];
+const DEFAULT_MASTERS=[
+{id:"m1",name:"Анна Соколова",spec:"Топ-стилист",color:"#e8a0b4",emoji:"👩‍🦰",cats:["Парикмахерские"]},
+{id:"m2",name:"Мария Ланге",spec:"Ногти",color:"#c9a86a",emoji:"💅",cats:["Ногти"]},
+{id:"m3",name:"Елена Ветрова",spec:"Косметолог",color:"#7fb069",emoji:"🧖‍♀️",cats:["Косметология","Брови и ресницы","Массаж"]},
+{id:"m4",name:"Дмитрий Ким",spec:"Барбер • визаж",color:"#7aa5d2",emoji:"💈",cats:["Парикмахерские","Визаж"]}];
+const DEFAULT_ADMINS=[
+{login:"admin",pass:"admin123",name:"Элен (управляющая)",role:"manager"},
+{login:"staff",pass:"staff123",name:"Анна (мастер)",role:"staff"}];
+const LS={get:(k,f)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch(e){return f}},set:(k,v)=>localStorage.setItem(k,JSON.stringify(v))};
+let services=LS.get("lumi_services",DEFAULT_SERVICES);
+services.forEach(s=>{if(s.active===undefined)s.active=true});
+let bookings=LS.get("lumi_bookings",null);
+let blocks=LS.get("lumi_blocks",[]);
+let reviews=LS.get("lumi_reviews",[{name:"Ольга",stars:5,text:"Окрашивание у Анны — супер!"},{name:"Ирина",stars:5,text:"Маникюр держится месяц."}]);
+let admins=LS.get("lumi_admins",DEFAULT_ADMINS);
+/* миграция: привязка профиля мастера (род деятельности) */
+let _admMig=false;admins.forEach(a=>{if(!("masterId" in a)){a.masterId=null;_admMig=true}});if(_admMig)LS.set("lumi_admins",admins);
+/* вид записей: Мои (по умолчанию) / Все */
+let bookingView="mine";
+function matchesSpecialty(u,b){
+if(!u||u.role==="manager")return true;
+const rec=admins.find(a=>a.login===u.login);
+if(!rec||!rec.masterId)return false;
+const prof=masterById(rec.masterId);if(!prof)return false;
+const cat=svcById(b.serviceId)?.cat;return prof.cats.includes(cat)};
+let delReqs=LS.get("lumi_delreqs",[]);
+if(!bookings){const t=todayStr();bookings=[{id:uid(),serviceId:"s1",masterId:"m1",date:t,time:"10:00",name:"Тестовая Гостья",phone:"+7 (900) 000-00-01",comment:"Первый визит",takenBy:null,cancelled:false,created:Date.now()},{id:uid(),serviceId:"s4",masterId:"m2",date:t,time:"12:30",name:"Ирина Петрова",phone:"+7 (900) 111-22-33",comment:"Хочу нюд",takenBy:null,cancelled:false,created:Date.now()}];LS.set("lumi_bookings",bookings)}
+/* миграция старых записей: status -> takenBy/cancelled */
+bookings.forEach(b=>{if(b.status!==undefined){if(b.status==="cancelled")b.cancelled=true;delete b.status}if(b.cancelled===undefined)b.cancelled=false;if(!("takenBy" in b))b.takenBy=null});
+/* ===== ПРОДАЖИ: допы, промокоды, бонусы, сертификаты ===== */
+const EXTRAS=[
+{id:"e1",name:"Дизайн ногтей (2 ногтя)",price:300,dur:15},
+{id:"e2",name:"Уходовая маска + массаж",price:500,dur:15},
+{id:"e3",name:"Укладка к услуге",price:800,dur:20},
+{id:"e4",name:"Снятие старого покрытия",price:200,dur:10}];
+const PROMOS={FIRST20:{pct:20,title:"−20% на первый визит"},LUMIERE10:{pct:10,title:"−10% для гостей"},PODRUGA15:{pct:15,title:"−15% «Приведи подругу»"}};
+const CERT_PRODUCTS=[
+{id:"c1",kind:"abonement",title:"Абонемент «Маникюр ×5»",price:9350,oldPrice:11000,desc:"5 маникюров с гель-лаком, скидка 15%. Действует 6 месяцев."},
+{id:"c2",kind:"cert",title:"Сертификат 3000 ₽",price:3000,value:3000,desc:"На любые услуги. Красивый бланк + конверт."},
+{id:"c3",kind:"cert",title:"Сертификат 5000 ₽",price:5000,value:5000,desc:"На любые услуги + укладка в подарок."}];
+let bonuses=LS.get("lumi_bonuses",{});
+let certs=LS.get("lumi_certs",[]);
+function bonusBalance(phone){return bonuses[phone.replace(/\D/g,"")]||0}
+function addBonus(phone,amount){const k=phone.replace(/\D/g,"");bonuses[k]=(bonuses[k]||0)+amount;LS.set("lumi_bonuses",bonuses)}
+function spendBonus(phone,amount){const k=phone.replace(/\D/g,"");bonuses[k]=Math.max(0,(bonuses[k]||0)-amount);LS.set("lumi_bonuses",bonuses)}
+function bookingDur(b){return b.dur||((svcById(b.serviceId)?.dur)||60)+(b.extraMin||0)+(b.lateMin||0)}
+function bookingTotal(b){if(b.total!==undefined&&b.total!==null)return b.total;return (svcById(b.serviceId)?.price||0)}
+/* состояние формы записи: допы, промо, бонусы, оплата */
+let selExtras=[],appliedPromo=null,useBonus=false,payType="none";
+function calcBooking(){
+const svc=svcById(document.getElementById("f-service").value);
+if(!svc)return null;
+const ex=EXTRAS.filter(e=>selExtras.includes(e.id));
+const exDur=ex.reduce((s,e)=>s+e.dur,0),exSum=ex.reduce((s,e)=>s+e.price,0);
+const subtotal=svc.price+exSum;
+const promo=(appliedPromo&&PROMOS[appliedPromo])?PROMOS[appliedPromo]:null;
+const discount=promo?Math.round(subtotal*promo.pct/100):0;
+const afterPromo=subtotal-discount;
+const phone=(document.getElementById("f-phone")?.value||"").trim();
+const bal=phone?bonusBalance(phone):0;
+const bonusMax=Math.min(bal,Math.round(afterPromo*0.2));
+const bonusUsed=useBonus?bonusMax:0;
+return{svc,ex,exDur,subtotal,promo,discount,afterPromo,bal,bonusMax,bonusUsed,total:Math.max(0,afterPromo-bonusUsed),dur:svc.dur+exDur}}
+function uid(){return "b"+Math.random().toString(36).slice(2,9)}
+function todayStr(d){d=d||new Date();return d.toISOString().slice(0,10)}
+function fmtDate(s){try{return new Date(s+"T00:00").toLocaleDateString("ru-RU",{day:"numeric",month:"long",weekday:"short"})}catch(e){return s}}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),2600)}
+function svcById(id){return services.find(s=>s.id===id)}
+function masterById(id){return DEFAULT_MASTERS.find(m=>m.id===id)}
+/* Состояния записи: Свободно (никто не взял) / Занято (взял сотрудник) */
+function takeState(b){if(!b||b.cancelled)return"cancelled";if(b.done)return"done";return b.takenBy?"taken":"free"}
+function takeStateRu(b){const s=takeState(b);return s==="taken"?"Занято":s==="free"?"Свободно":s==="done"?"Выполнено":"Отменена"}
+function takeBadge(b){const s=takeState(b);const cls=s==="taken"?"st-taken":s==="free"?"st-free":s==="done"?"st-done":"st-cancelled";const who=(s==="taken"&&b.takenBy&&b.takenBy.name)?" • "+b.takenBy.name:(s==="done"&&(b.doneBy||b.takenBy)&&((b.doneBy||b.takenBy).name))?" • "+(b.doneBy||b.takenBy).name:"";return `<span class="status ${cls}">${takeStateRu(b)}${who}</span>`}
+function roleRu(r){return r==="manager"?"Управляющий состав":"Сотрудник"}
+function curUser(){try{return JSON.parse(sessionStorage.getItem("lumi_admin_session")||"null")}catch(e){return null}}
+function isManager(){const u=curUser();return u&&u.role==="manager"}
+
+/* ========== БУРГЕР ========== */
+document.getElementById("burger").onclick=()=>document.getElementById("nav-links").classList.toggle("open");
+document.querySelectorAll("#nav-links a").forEach(a=>a.onclick=()=>document.getElementById("nav-links").classList.remove("open"));
+
+/* ========== КЛИЕНТ: услуги/мастера ========== */
+function activeServices(){return services.filter(s=>s.active!==false)}
+function renderServices(){
+const g=document.getElementById("services-grid");g.innerHTML="";
+activeServices().forEach(s=>{const d=document.createElement("div");d.className="card";
+d.innerHTML=`<span class="tag">${s.cat}</span><h3>${s.name}</h3><div class="desc">${s.desc||""}</div><div class="meta">⏱ ${s.dur} мин</div><div class="price">${s.price.toLocaleString("ru-RU")} ₽</div><button class="btn btn-primary">Записаться</button>`;
+d.querySelector("button").onclick=()=>{document.getElementById("f-service").value=s.id;onFormChange();document.getElementById("booking").scrollIntoView({behavior:"smooth"});toast("Выбрана: "+s.name)};g.appendChild(d)});
+if(!activeServices().length)g.innerHTML=`<div class="hint">Все услуги временно заморожены. Позвоните нам!</div>`;
+document.getElementById("f-service").innerHTML=activeServices().map(s=>`<option value="${s.id}">${s.name} — ${s.price} ₽ (${s.dur} мин)</option>`).join("");
+document.getElementById("ad-service").innerHTML=services.map(s=>`<option value="${s.id}">${s.active===false?"❄ ":""}${s.name} — ${s.price} ₽</option>`).join("");
+}
+function renderMasters(){
+const g=document.getElementById("masters-grid");g.innerHTML="";
+DEFAULT_MASTERS.forEach(m=>{const d=document.createElement("div");d.className="card";
+d.innerHTML=`<div style="display:flex;gap:12px;align-items:center"><div class="master-avatar" style="background:${m.color}">${m.emoji}</div><div><b>${m.name}</b><br><span style="font-size:13px;color:var(--muted)">${m.spec}</span></div></div><div>${m.cats.map(c=>`<span class="tag">${c}</span>`).join("")}</div><button class="btn">Записаться</button>`;
+d.querySelector("button").onclick=()=>{document.getElementById("f-master").value=m.id;onFormChange();document.getElementById("booking").scrollIntoView({behavior:"smooth"})};g.appendChild(d)});
+const opts=`<option value="any">✨ Кто свободен</option>`+DEFAULT_MASTERS.map(m=>`<option value="${m.id}">${m.emoji} ${m.name}</option>`).join("");
+document.getElementById("f-master").innerHTML=opts;
+document.getElementById("a-master").innerHTML=`<option value="">Все мастера</option>`+DEFAULT_MASTERS.map(m=>`<option value="${m.id}">${m.name}</option>`).join("");
+document.getElementById("ad-master").innerHTML=DEFAULT_MASTERS.map(m=>`<option value="${m.id}">${m.name}</option>`).join("");
+document.getElementById("b-master").innerHTML=DEFAULT_MASTERS.map(m=>`<option value="${m.id}">${m.name}</option>`).join("");
+}
+function renderReviews(){
+const g=document.getElementById("reviews-grid");g.innerHTML="";reviews.forEach(r=>{const d=document.createElement("div");d.className="card";d.innerHTML=`<div>${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div><b>${r.name}</b><div style="font-size:14px">${r.text}</div>`;g.appendChild(d)});
+const avg=reviews.length?(reviews.reduce((s,r)=>s+r.stars,0)/reviews.length):5;
+document.getElementById("rating-sub").textContent=`${avg.toFixed(1)} на основе ${reviews.length} отзывов гостей • мы на Яндекс Картах и 2ГИС`;
+document.querySelector(".rating-big").textContent=`${avg.toFixed(1)} ★`}
+/* ===== квиз-подбор услуги ===== */
+const QUIZ=[
+{q:"Что хотите преобразить?",opts:[["hair","💇‍♀️ Волосы"],["nails","💅 Ногти"],["face","🧖‍♀️ Лицо и кожа"],["look","💄 Образ целиком"]]},
+{q:"Какой бюджет?",opts:[["b1","До 2 500 ₽"],["b2","До 5 000 ₽"],["b3","Не важен"]]},
+{q:"Сколько времени готовы потратить?",opts:[["t1","До часа"],["t2","Есть время"]]}];
+let quizStep=0,quizAns={};
+function renderQuiz(){
+const steps=document.getElementById("quiz-steps");steps.innerHTML=[0,1,2].map(i=>`<i class="${i<=quizStep?"on":""}"></i>`).join("");
+document.getElementById("quiz-q").textContent=QUIZ[quizStep].q;
+const box=document.getElementById("quiz-opts");box.innerHTML="";
+QUIZ[quizStep].opts.forEach(([v,t])=>{const b=document.createElement("button");b.className="quiz-opt";b.textContent=t;b.onclick=()=>answerQuiz(v);box.appendChild(b)});
+if(quizStep>0){const back=document.createElement("button");back.className="btn btn-small";back.style.marginTop="10px";back.textContent="← Назад";back.onclick=()=>{quizStep--;renderQuiz()};box.appendChild(back)}}
+function answerQuiz(v){
+quizAns[["cat","budget","time"][quizStep]]=v;
+if(quizStep<2){quizStep++;renderQuiz();return}
+const catMap={hair:["Парикмахерские"],nails:["Ногти"],face:["Косметология","Брови и ресницы","Массаж"],look:["Визаж","Парикмахерские","Косметология"]};
+const maxBudget={b1:2500,b2:5000,b3:1e9}[quizAns.budget];
+let cands=activeServices().filter(s=>catMap[quizAns.cat].includes(s.cat)&&s.price<=maxBudget);
+if(quizAns.time==="t1")cands=cands.filter(s=>s.dur<=60);
+const pick=cands[0]||activeServices()[0];
+document.getElementById("quiz-steps").innerHTML=`<i class="on"></i><i class="on"></i><i class="on"></i>`;
+document.getElementById("quiz-q").textContent="Вам подойдёт:";
+document.getElementById("quiz-opts").innerHTML=`<div class="book-item" style="font-size:16px"><b>${pick.name}</b><br>${pick.price.toLocaleString("ru-RU")} ₽ • ⏱ ${pick.dur} мин</div><div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button class="btn btn-primary" id="quiz-go" style="flex:1">Записаться ✨</button><button class="btn" id="quiz-re">Пройти заново</button></div>`;
+document.getElementById("quiz-go").onclick=()=>{document.getElementById("f-service").value=pick.id;onFormChange();document.getElementById("booking").scrollIntoView({behavior:"smooth"});toast("Подобрали: "+pick.name+" 💖")};
+document.getElementById("quiz-re").onclick=()=>{quizStep=0;quizAns={};renderQuiz()}}
+/* ===== галерея до/после ===== */
+document.querySelectorAll("[data-ba]").forEach(r=>{
+const wrap=r.closest(".ba-card").querySelector(".ba-wrap");
+const set=()=>wrap.querySelector(".ba-before").style.setProperty("--pos",r.value+"%");
+r.addEventListener("input",set);set()});
+/* ===== сертификаты ===== */
+function renderCerts(){
+const g=document.getElementById("cert-grid");if(!g)return;g.innerHTML="";
+CERT_PRODUCTS.forEach(p=>{const d=document.createElement("div");d.className="cert-card";
+d.innerHTML=`<h3>🎁 ${p.title}</h3><div style="font-size:14px">${p.desc}</div><div style="margin:10px 0"><span class="cert-price">${p.price.toLocaleString("ru-RU")} ₽</span> ${p.oldPrice?`<span class="total-old">${p.oldPrice.toLocaleString("ru-RU")} ₽</span>``:""}</div><button class="btn btn-dark" style="width:100%">Купить онлайн</button>`;
+d.querySelector("button").onclick=()=>{
+const name=prompt("На чьё имя оформить?","Для подруги");if(name===null)return;
+const phone=prompt("Телефон получателя (для поиска сертификата):","+7");if(phone===null||phone.replace(/\D/g,"").length<10)return toast("Нужен корректный телефон");
+openPay(p.title,p.price,()=>{const code="LUM-"+Math.random().toString(36).slice(2,6).toUpperCase();
+certs.push({id:uid(),code,title:p.title,value:p.value||p.price,price:p.price,owner:ownerNameFix(name),ownerPhone:phone.replace(/\D/g,"\
